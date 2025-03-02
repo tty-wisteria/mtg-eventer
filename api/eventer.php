@@ -122,8 +122,9 @@ class Eventer{
 			}
 
 			if($flag){
-				var_dump($shop);
 				$events = $this->getEvent($shop);
+
+				var_dump($events);
 
 				foreach( $events as $event ){
 					$this->insertDumpTable($event);

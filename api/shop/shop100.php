@@ -16,6 +16,9 @@ class Shop100 extends Shopper{
 			$scrapePages[] = $this->url.'&date='.date('Ym', strtotime($this->until));
 		}
 
+		var_dump($scrapePages);
+
+
 		$upperPages = $this->callMultiCURLProcess($scrapePages, function($pageURL, $html){
 			$pageEvents = [];
 
@@ -47,6 +50,7 @@ class Shop100 extends Shopper{
 			return $pageEvents;
 		});
 
+
 		foreach( $upperPages as $u ){					//対象URLのチェック
 			if(strpos( $u, 'detail' ) !== false){		//detailを含むURLの場合
 				$targetURLs[] = $u;						//イベントページなので保持
@@ -70,6 +74,9 @@ class Shop100 extends Shopper{
 
 			$targetURLs = array_merge($targetURLs, $lowerURLs);
 		}
+
+		echo('<b>targetURLs</b><br>');
+		var_dump($targetURLs);
 
 		$events = $this->callMultiCURLProcess($targetURLs, function($pageURL, $html){
 			

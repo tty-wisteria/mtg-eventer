@@ -86,8 +86,8 @@ class Shopper{
 
 		//HTML取得
 		foreach ($ch_array as $ch) {
-			$info = curl_getinfo($ch);
-
+			var_dump( curl_getinfo($ch));
+			
 			$content = mb_convert_encoding(
 				curl_multi_getcontent($ch),
 				'HTML-ENTITIES',
@@ -99,7 +99,7 @@ class Shopper{
 			$page = new DOMXPath($dom);
 			unset($dom);
 
-			$res = $method( $info['url'], $page);
+			$res = $method( curl_getinfo($ch)['url'], $page);
 
 			foreach($res as $val){
 				$result[] = $val;

@@ -8,15 +8,15 @@
 
 	echo '<pre>';
 	$eventer->dater->updateTerm(
-		date('c', strtotime('2025-02-27')),
-		date('c', strtotime('2025-03-31'))
+		date('c', strtotime('2025-03-02')),
+		date('c', strtotime('2025-03-09'))
 	);
 
 
-	//$eventer->updateManual([106]);
-	//$eventer->updateManual([101,102,103,104,105,106]);
+	//$eventer->updateManual([105]);
+	$eventer->updateManual([101,102,103,104,105,106]);
 	//$eventer->updateManual([502,503,504,505,506]);
-	$eventer->updateManual([502]);
+	//$eventer->updateManual([502]);
 	//$eventer->updateManual([601,602,603,604,605,606,607,608,609]);
 	//$eventer->updateManual([601]);
 	//$eventer->updateManual([301,302]);
